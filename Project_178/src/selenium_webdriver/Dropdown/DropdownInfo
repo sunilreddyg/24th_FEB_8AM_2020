@@ -128,10 +128,9 @@ Example:--> Write a program to deselect, any single option from multiple Selecti
 		 using <<Deselectbyindex>>
 
 Syntax:-->
-	new Select(webElement).deselectbyindex(indexnumber);
+	new Select(webElement).deselectbyindex(int indexnumber);
 
 ----------------------------------------------------------------------
-
 Example:---> Write a program to deselect, any single option from multiple Selection 
 		 using <<Deselectbyvalue>>
 Syntax:-->
@@ -139,12 +138,10 @@ Syntax:-->
 new Select(webelement).deselectbyValue("optionvalue");
 
 -----------------------------------------------------------------------
-
 Example:---> How to Deselect all options from selection
 
 Syntax:--->
                  new Select(webelement).deselectall();
-
 
 	Note:---> all deselect options will be performed on
 		multiple selection only.
