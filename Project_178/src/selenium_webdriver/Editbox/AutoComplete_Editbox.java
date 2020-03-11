@@ -10,12 +10,14 @@ public class AutoComplete_Editbox
 
 	public static void main(String[] args) throws Exception 
 	{
-		
 		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.cleartrip.com/");
 	    driver.manage().window().maximize();
 	    Thread.sleep(5000);
+	    
+	    //Selecting Roundtrip Radio button
+	    driver.findElement(By.id("RoundTrip")).click();
 	    
 	    //Sendking Referral keyword to Auto Complete editbox
 	    driver.findElement(By.id("FromTag")).clear();
@@ -23,7 +25,6 @@ public class AutoComplete_Editbox
 	    Thread.sleep(4000);  //Static timegap to load Sugesstions
 	    //selecing sugession from services..
 	    driver.findElement(By.linkText("Hyderabad, IN - Rajiv Gandhi International (HYD)")).click();
-	    
 	    
 	    //Sending referral keyword to autocomplete editbox
 	    driver.findElement(By.id("ToTag")).clear();
@@ -33,6 +34,31 @@ public class AutoComplete_Editbox
 	    
 	    //Select Date from datepicker
 	    driver.findElement(By.linkText("28")).click();
+	    Thread.sleep(2000);
+
+	    //Type date into return date editbox [Before type make sure editbox is in writable mode]
+	    driver.findElement(By.id("ReturnDate")).clear();
+	    driver.findElement(By.id("ReturnDate")).sendKeys("Thu, 20 Aug, 2020",Keys.ESCAPE);
+	    
+	    //Seleting Dropdown by targeting option tag under select Tag.
+	    driver.findElement(By.xpath("//*[@id=\"Adults\"]/option[3]")).click();
+	    
+	    //Click Link using partial linkname
+	    driver.findElement(By.partialLinkText("More options:")).click();
+	    
+	    driver.findElement(By.xpath("//*[@id=\"Class\"]/option[1]")).click();
+	    
+	    //Send Request to Serverices
+	    driver.findElement(By.id("AirlineAutocomplete")).clear();
+	    driver.findElement(By.id("AirlineAutocomplete")).sendKeys("Air Asia");
+	    Thread.sleep(5000);
+	    //Select Required sugesstion from services.
+	    driver.findElement(By.linkText("Air Asia (I5)")).click();
+	    
+	    
+	    driver.findElement(By.id("SearchBtn")).click();
+	    
+	    
 		
 	}
 
